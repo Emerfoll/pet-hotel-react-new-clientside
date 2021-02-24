@@ -13,7 +13,7 @@ const Dashboard = () => {
     const [breed, setPetBreed] = useState('')
     const [owner_id, setOwner] = useState('')
 
-    // console.log(pets);
+    console.log(pets);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -25,6 +25,8 @@ const Dashboard = () => {
             owner_id
         }
         console.log(petTooAdd);
+        dispatch({type:'dispatch', payload: petTooAdd})
+
     }
 
     useEffect(() => {
