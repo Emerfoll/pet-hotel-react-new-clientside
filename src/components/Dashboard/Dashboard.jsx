@@ -1,11 +1,37 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 const Dashboard = () => {
 
-    const handleSubmit = () => {
-        console.log('submitted pet');
+    const dispatch = useDispatch();
+    const pets = useSelector(store => store.petsReducer);
+
+    const [pet, setPetName] = useState('')
+    const [color, setPetColor] = useState('')
+    const [breed, setPetBreed] = useState('')
+    const [owner_id, setOwner] = useState('')
+
+    console.log(pets);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('submitted pet', pet);
+        const petTooAdd = {
+            pet,
+            color,
+            breed,
+            owner_id
+        }
+        console.log(petTooAdd);
+        dispatch({type:'dispatch', payload: petTooAdd})
+
     }
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_PETS' });
+    }, []);
 
     return (
         <div>
@@ -13,19 +39,39 @@ const Dashboard = () => {
 
             <h2>Add Pet</h2>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Pet Name" />
-                <input type="text" placeholder="Pet Color" />
-                <input type="text" placeholder="Pet Breed" />
+                <input 
+                type="text" 
+                placeholder="Pet Name" 
+                value={pet}
+                onChange={(event) => setPetName(event.target.value)}
+                />
+                <input 
+                type="text" 
+                placeholder="Pet Color" 
+                value={color}
+                onChange={(event) => setPetColor(event.target.value)}
+                />
+                <input 
+                type="text" 
+                placeholder="Pet Breed" 
+                value={breed}
+                onChange={(event) => setPetBreed(event.target.value)}
+                />
 
-                <select name="selectOwner" id="selectOwner">
+                <select 
+                name="selectOwner" 
+                id="selectOwner"
+                value={owner_id}
+                onChange={(event) => { setOwner(event.target.value) }}
+                >
                     <option value="owner1">Owner 1</option>
                     <option value="owner2">Owner 2</option>
                     <option value="owner3">Owner 3</option>
                 </select>
 
-                <button 
-                className="submitBtn" 
-                onClick={handleSubmit} 
+                <button
+                    className="submitBtn"
+                    type="Submit"
                 >Submit</button>
 
             </form>
@@ -33,6 +79,22 @@ const Dashboard = () => {
 
             <h1>History</h1>
             <table>
+
+                <thead>
+                    <tr>
+                        <th>Owner |</th>
+                        <th>Pet |</th>
+                        <th>Breed |</th>
+                        <th>Color |</th>
+                        <th>Checked In |</th>
+                        <th>Actions |</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>chris</td><td>Charlie</td><td>Shih-tzu</td><td>Black</td><td>No</td><td>delete|checkin</td></tr>
+                </tbody>
+
 
             </table>
 
