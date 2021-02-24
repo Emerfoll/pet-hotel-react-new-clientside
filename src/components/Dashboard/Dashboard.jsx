@@ -1,11 +1,22 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 const Dashboard = () => {
 
+    const dispatch = useDispatch();
+    const pets = useSelector(store => store.petsReducer);
+
+    console.log(pets);
+
     const handleSubmit = () => {
         console.log('submitted pet');
     }
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_PETS' });
+    }, []);
 
     return (
         <div>
@@ -23,9 +34,9 @@ const Dashboard = () => {
                     <option value="owner3">Owner 3</option>
                 </select>
 
-                <button 
-                className="submitBtn" 
-                onClick={handleSubmit} 
+                <button
+                    className="submitBtn"
+                    onClick={handleSubmit}
                 >Submit</button>
 
             </form>
@@ -33,9 +44,22 @@ const Dashboard = () => {
 
             <h1>History</h1>
             <table>
+
                 <thead>
-                    <tr>Owner</tr>
+                    <tr>
+                        <th>Owner |</th>
+                        <th>Pet |</th>
+                        <th>Breed |</th>
+                        <th>Color |</th>
+                        <th>Checked In |</th>
+                        <th>Actions |</th>
+                    </tr>
                 </thead>
+
+                <tbody>
+                    <tr><td>chris</td><td>Charlie</td><td>Shih-tzu</td><td>Black</td><td>No</td><td>delete|checkin</td></tr>
+                </tbody>
+
 
             </table>
 
