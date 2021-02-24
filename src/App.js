@@ -2,45 +2,45 @@ import React from 'react';
 import {
   HashRouter as Router,
   Route,
-  Switch,
+  Switch
 } from 'react-router-dom';
-import Dashboard from './components/Dashboard/Dashboard.jsx'
-import ManageOwners from './components/ManageOwners/ManageOwners.jsx'
-
 import './App.css';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
+import ManageOwners from './components/ManageOwners/ManageOwners.jsx';
+
 
 
 function App() {
   return (
 
 
-      <Router>
+    <Router>
 
-        <div>
+      <div>
 
-          <Switch>
-            <Route
-              // shows Dashboard
-              exact
-              path="/home"
-            >
-              <Dashboard />
-            </Route>
+        <Switch>
+          <Route
+            // shows Dashboard
+            exact
+            path="/home"
+          >
+            <Dashboard />
+          </Route>
 
-            <Route
-              // shows Dashboard
-              exact
-              path="/owners"
-            >
-              <ManageOwners />
-            </Route>
+          <Route
+            // shows Dashboard
+            exact
+            path="/owners"
+          >
+            <ManageOwners />
+          </Route>
 
-          </Switch>     
-        </div>
+        </Switch>
+      </div>
 
-      </Router>
+    </Router>
 
-    
+
   );
 }
 

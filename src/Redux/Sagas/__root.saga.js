@@ -5,6 +5,6 @@ import petsSaga from './pets.saga';
 export default function* rootSaga() {
     yield all([
         petsSaga(),
-        ownersSaga
+        ownersSaga()
     ]);
 }

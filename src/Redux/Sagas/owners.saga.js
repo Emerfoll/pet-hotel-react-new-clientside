@@ -4,7 +4,8 @@ import { put, takeEvery } from "redux-saga/effects";
 function* fetchOwners() {
     try {
         const response = yield axios.get('/owners');
-        yield put({ type: 'STORE_OWNERS', payload: response.data.rows });
+        console.log('response', response);
+        yield put({ type: 'STORE_OWNERS', payload: response.data });
 
     } catch (err) {
         console.log(err);
@@ -24,7 +25,7 @@ function* addOwner(action) {
 
 function* deleteOwner(action) {
     try {
-        yield axios.delete(`/owners/${action.payload.id}`, action.payload);
+        yield axios.delete(`/owners/${action.payload.id}`);
         yield put({ type: 'FETCH_OWNERS' });
 
     } catch (err) {

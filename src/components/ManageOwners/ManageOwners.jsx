@@ -1,14 +1,10 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import OwnerItem from '../OwnerItem/OwnerItem';
 
 const ManageOwners = () => {
   const dispatch = useDispatch();
-
-  const [owners, setOwners] = useState([
-    { id: 1, name: 'Tony', numberOfPets: 4 },
-    { id: 2, name: 'Brock', numberOfPets: 12 },
-  ]);
+  const owners = useSelector((state) => state.ownersReducer);
 
   const [owner, setOwner] = useState('');
 
@@ -17,6 +13,11 @@ const ManageOwners = () => {
     dispatch({ type: 'ADD_OWNER', payload: { name: owner } });
     setOwner('');
   };
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_OWNERS' });
+  }, []);
+
   return (
     <div>
       <h1>Add Owner</h1>
