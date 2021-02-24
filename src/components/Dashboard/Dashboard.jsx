@@ -25,7 +25,7 @@ const Dashboard = () => {
             owner_id
         }
         console.log(petTooAdd);
-        dispatch({type:'dispatch', payload: petTooAdd})
+        dispatch({ type: 'dispatch', payload: petTooAdd })
 
     }
 
@@ -39,30 +39,30 @@ const Dashboard = () => {
 
             <h2>Add Pet</h2>
             <form onSubmit={handleSubmit}>
-                <input 
-                type="text" 
-                placeholder="Pet Name" 
-                value={pet}
-                onChange={(event) => setPetName(event.target.value)}
+                <input
+                    type="text"
+                    placeholder="Pet Name"
+                    value={pet}
+                    onChange={(event) => setPetName(event.target.value)}
                 />
-                <input 
-                type="text" 
-                placeholder="Pet Color" 
-                value={color}
-                onChange={(event) => setPetColor(event.target.value)}
+                <input
+                    type="text"
+                    placeholder="Pet Color"
+                    value={color}
+                    onChange={(event) => setPetColor(event.target.value)}
                 />
-                <input 
-                type="text" 
-                placeholder="Pet Breed" 
-                value={breed}
-                onChange={(event) => setPetBreed(event.target.value)}
+                <input
+                    type="text"
+                    placeholder="Pet Breed"
+                    value={breed}
+                    onChange={(event) => setPetBreed(event.target.value)}
                 />
 
-                <select 
-                name="selectOwner" 
-                id="selectOwner"
-                value={owner_id}
-                onChange={(event) => { setOwner(event.target.value) }}
+                <select
+                    name="selectOwner"
+                    id="selectOwner"
+                    value={owner_id}
+                    onChange={(event) => { setOwner(event.target.value) }}
                 >
                     <option value="owner1">Owner 1</option>
                     <option value="owner2">Owner 2</option>
@@ -92,9 +92,18 @@ const Dashboard = () => {
                 </thead>
 
                 <tbody>
-                    <tr><td>chris</td><td>Charlie</td><td>Shih-tzu</td><td>Black</td><td>No</td><td>delete|checkin</td></tr>
                     {pets.map((pet) => (
-                        <tr><td>{pet.id}</td></tr>
+                        <tr key={pet.id}>
+                            <td>{pet.pet}</td>
+                            <td>{pet.owner_id}</td>
+                            <td>{pet.breed}</td>
+                            <td>{pet.color}</td>
+                            <td>{pet.checked_in ? <p>yes</p> : <p>no</p>}</td>
+                            <td>
+                                <button>Delete</button>
+                                <button>Check-In</button>
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
 
