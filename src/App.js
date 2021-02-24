@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   HashRouter as Router,
   Route,
-  Redirect,
   Switch,
 } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard.jsx'
