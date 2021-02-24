@@ -1,6 +1,7 @@
-const petsReducer = (state = [], action) => {
+const ownersReducer = (state = [], action) => {
     switch (action.type) {
-        case 'STORE_PETS':
+
+        case 'STORE_OWNERS':
             return action.payload;
 
         default:
@@ -8,4 +9,4 @@ const petsReducer = (state = [], action) => {
     }
 };
 
-export default petsReducer;
+export default ownersReducer;
