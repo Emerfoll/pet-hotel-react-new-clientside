@@ -4,7 +4,7 @@ import { put, takeEvery } from "redux-saga/effects";
 function* fetchPets() {
     try {
         const response = yield axios.get('/pets');
-        yield put({ type: 'STORE_PETS', payload: response.data.rows });
+        yield put({ type: 'STORE_PETS', payload: response.data });
     } catch (err) {
         console.log(err);
     }
