@@ -33,6 +33,9 @@ const Dashboard = () => {
 
             <h1>History</h1>
             <table>
+                <thead>
+                    <tr>Owner</tr>
+                </thead>
 
             </table>
 
