@@ -93,6 +93,9 @@ const Dashboard = () => {
 
                 <tbody>
                     <tr><td>chris</td><td>Charlie</td><td>Shih-tzu</td><td>Black</td><td>No</td><td>delete|checkin</td></tr>
+                    {pets.map((pet) => (
+                        <tr><td>{pet.id}</td></tr>
+                    ))}
                 </tbody>
 
 
