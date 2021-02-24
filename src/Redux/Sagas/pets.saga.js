@@ -29,7 +29,7 @@ function* deletePet(action) {
     }
 }
 
-function editPet(action) {
+function* editPet(action) {
     try {
         yield axios.put(`/pets/${action.payload.id}`, action.payload);
         yield put({ type: 'FETCH_PETS' });
