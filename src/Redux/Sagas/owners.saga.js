@@ -35,7 +35,7 @@ function* addOwner(action) {
 
 function* deleteOwner(action) {
     try {
-        yield axios.delete(`/owners/${action.payload.id}`);
+        yield axios.delete(`/owners/${action.payload}`);
         yield put({ type: 'FETCH_OWNERS' });
 
     } catch (err) {
@@ -46,7 +46,7 @@ function* deleteOwner(action) {
 function* ownersSaga() {
     yield takeEvery('FETCH_OWNERS', fetchOwners);
     yield takeEvery('ADD_OWNER', addOwner);
-    yield takeEvery('DELETE_OWNERS', deleteOwner);
+    yield takeEvery('DELETE_OWNER', deleteOwner);
     yield takeEvery('FETCH_BOTH', fetchBoth);
 }
 
