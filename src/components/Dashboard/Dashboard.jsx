@@ -24,7 +24,7 @@ const Dashboard = () => {
       owner_id,
     };
     console.log(petTooAdd);
-    dispatch({ type: 'dispatch', payload: petTooAdd });
+    dispatch({ type: 'ADD_PET', payload: petTooAdd });
   };
 
   useEffect(() => {
@@ -69,7 +69,6 @@ const Dashboard = () => {
           {owners.map((owner) => (
             <option value="owner1">{owner.name}</option>
           ))}
-          
         </select>
 
         <button className="submitBtn" type="Submit">
