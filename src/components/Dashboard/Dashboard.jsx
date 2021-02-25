@@ -30,10 +30,12 @@ const Dashboard = () => {
 
     const deleteClicked = (id) => {
         console.log('delete clicked for:', id);
+        dispatch({ type: 'DELETE_PET', payload: id})
     }
 
     const checkInClicked = (id) => {
         console.log('check-in clicked for:', id);
+        
     }
 
     useEffect(() => {
