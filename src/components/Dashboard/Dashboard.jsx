@@ -35,6 +35,7 @@ const Dashboard = () => {
 
     const checkInClicked = (id) => {
         console.log('check-in clicked for:', id);
+        dispatch({ type: 'EDIT_PET', payload: {id: id}})
         
     }
 
