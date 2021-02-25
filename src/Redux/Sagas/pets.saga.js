@@ -4,7 +4,7 @@ import { put, takeEvery } from "redux-saga/effects";
 function* fetchPets() {
     try {
         console.log('getting pets');
-        
+
         const response = yield axios.get('/pets');
         yield put({ type: 'STORE_PETS', payload: response.data });
     } catch (err) {
@@ -16,7 +16,7 @@ function* fetchPets() {
 function* addPet(action) {
     try {
         console.log('saga to addPet');
-        
+
         yield axios.post('/pets', action.payload);
         yield put({ type: 'FETCH_PETS' });
     } catch (err) {
@@ -25,7 +25,7 @@ function* addPet(action) {
 }
 
 function* deletePet(action) {
-    console.log(action.payload)
+    console.log(action.payload);
     try {
         yield axios.delete(`/pets/${action.payload}`);
         yield put({ type: 'FETCH_PETS' });
@@ -39,7 +39,17 @@ function* editPet(action) {
         yield axios.put(`/pets`, action.payload);
         yield put({ type: 'FETCH_PETS' });
     } catch (err) {
+        console.log(err);
+    }
+}
 
+
+function* checkOutPet(action) {
+    try {
+        yield axios.put(`/pets/check_out/${action.payload}`);
+        yield put({ type: 'FETCH_PETS' });
+    } catch (err) {
+        console.log(err);
     }
 }
 
@@ -48,4 +58,5 @@ export default function* petsSaga() {
     yield takeEvery('ADD_PET', addPet);
     yield takeEvery('DELETE_PET', deletePet);
     yield takeEvery('EDIT_PET', editPet);
+    yield takeEvery('CHECKOUT_PET', checkOutPet);
 }
