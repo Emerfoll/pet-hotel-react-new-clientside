@@ -10,14 +10,14 @@
 
 
 .navLink {
-    display: inline-block;
+    display: inline;
     color: rgb(228, 224, 224);
     background-color: rgb(23, 21, 24);
     text-align: center;
     padding: 24px 10px;
     text-decoration: none;
     font-size: 15px;
-    width: 100%;
+    width: 50%;
     
     
   }
