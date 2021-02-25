@@ -77,7 +77,7 @@ const Dashboard = () => {
                     onChange={(event) => {
                         setOwner(event.target.value);
                     }}
-                >
+                >   <option disabled value="" selected>Choose Owner</option>
                     {owners.map((owner) => (
                         <option key={owner.id} value={owner.id}>{owner.name}</option>
                     ))}
