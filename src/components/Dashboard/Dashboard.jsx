@@ -67,11 +67,9 @@ const Dashboard = () => {
           }}
         >
           {owners.map((owner) => (
-            <option value="owner1">Owner 1</option>
+            <option value="owner1">{owner.name}</option>
           ))}
-          <option value="owner1">Owner 1</option>
-          <option value="owner2">Owner 2</option>
-          <option value="owner3">Owner 3</option>
+          
         </select>
 
         <button className="submitBtn" type="Submit">
