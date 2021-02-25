@@ -33,12 +33,16 @@ const Dashboard = () => {
         setOwner('');
     };
 
+
     const deleteClicked = (id) => {
         console.log('delete clicked for:', id);
+        dispatch({ type: 'DELETE_PET', payload: id})
     }
 
     const checkInClicked = (id) => {
         console.log('check-in clicked for:', id);
+        dispatch({ type: 'EDIT_PET', payload: {id: id}})
+        
     }
 
     useEffect(() => {
@@ -82,7 +86,7 @@ const Dashboard = () => {
                     onChange={(event) => {
                         setOwner(event.target.value);
                     }}
-                >
+                >   <option disabled value="" selected>Choose Owner</option>
                     {owners.map((owner) => (
                         <option key={owner.id} value={owner.id}>{owner.name}</option>
                     ))}
@@ -117,7 +121,7 @@ const Dashboard = () => {
                             <td>{pet.owner_id}</td>
                             <td>{pet.breed}</td>
                             <td>{pet.color}</td>
-                            <td>{pet.checked_in ? <p>yes</p> : <p>no</p>}</td>
+                            <td>{pet.checked_in ? <p>{pet.checked_in_date}</p> : <p>no</p>}</td>
                             <td>
 
                                 <button
