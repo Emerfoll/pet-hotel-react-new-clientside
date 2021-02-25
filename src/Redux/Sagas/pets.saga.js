@@ -3,6 +3,8 @@ import { put, takeEvery } from "redux-saga/effects";
 
 function* fetchPets() {
     try {
+        console.log('getting pets');
+        
         const response = yield axios.get('/pets');
         yield put({ type: 'STORE_PETS', payload: response.data });
     } catch (err) {
