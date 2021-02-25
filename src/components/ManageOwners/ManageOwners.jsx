@@ -21,8 +21,8 @@ const ManageOwners = () => {
     }, []);
 
     return (
-        <div>
-            <h1 className="ownerHeader">Add Owner</h1>
+        <div className="ownerHeader">
+            <h1 >Add Owner</h1>
             <form onSubmit={handleSubmit} className="ownerHeader">
                 <input
                     className="input"
