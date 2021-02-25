@@ -7,14 +7,17 @@ const Dashboard = () => {
 
     const dispatch = useDispatch();
     const pets = useSelector(store => store.petsReducer);
+    const owners = useSelector(store => store.ownersReducer)
+
+    console.log('pets:', pets);
+    console.log('owners:', owners);
 
     const [pet, setPetName] = useState('')
     const [color, setPetColor] = useState('')
     const [breed, setPetBreed] = useState('')
     const [owner_id, setOwner] = useState('')
 
-    console.log(pets);
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('submitted pet', pet);
@@ -31,7 +34,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_PETS' });
+        dispatch({ type: 'FETCH_OWNERS' });
     }, []);
+
+    
 
     return (
         <div>
@@ -64,6 +70,9 @@ const Dashboard = () => {
                     value={owner_id}
                     onChange={(event) => { setOwner(event.target.value) }}
                 >
+                    {owners.map((owner) => (
+                        <option value="owner1">Owner 1</option>
+                    ))}
                     <option value="owner1">Owner 1</option>
                     <option value="owner2">Owner 2</option>
                     <option value="owner3">Owner 3</option>
@@ -92,7 +101,7 @@ const Dashboard = () => {
                 </thead>
 
                 <tbody>
-                    {pets.map((pet) => (
+                    {pets?.map((pet) => (
                         <tr key={pet.id}>
                             <td>{pet.pet}</td>
                             <td>{pet.owner_id}</td>
