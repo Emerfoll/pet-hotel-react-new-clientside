@@ -6,8 +6,8 @@ const Dashboard = () => {
     const pets = useSelector((store) => store.petsReducer);
     const owners = useSelector((store) => store.ownersReducer);
 
-    console.log('pets:', pets);
-    console.log('owners:', owners);
+    // console.log('pets:', pets);
+    // console.log('owners:', owners);
 
     const [pet, setPetName] = useState('');
     const [color, setPetColor] = useState('');
