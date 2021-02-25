@@ -27,6 +27,7 @@ const Dashboard = () => {
         dispatch({ type: 'ADD_PET', payload: petTooAdd });
     };
 
+
     const deleteClicked = (id) => {
         console.log('delete clicked for:', id);
     }

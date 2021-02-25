@@ -25,7 +25,7 @@ function* fetchOwners() {
 function* addOwner(action) {
 
     try {
-        yield axios.post('/owners', action.payload);
+        yield axios.post('/owners/add', action.payload);
         yield put({ type: 'FETCH_OWNERS' });
 
     } catch (err) {
