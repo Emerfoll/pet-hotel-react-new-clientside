@@ -13,7 +13,7 @@ export default function OwnerItem({ owner, i }) {
       <td>{owner.name}</td>
       <td>{owner.total_pets}</td>
       <td>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete} type="button" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   );

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './Dashboard.css'
+
 const Dashboard = () => {
     const dispatch = useDispatch();
     const pets = useSelector((store) => store.petsReducer);
@@ -25,6 +27,10 @@ const Dashboard = () => {
         };
         console.log(petTooAdd);
         dispatch({ type: 'ADD_PET', payload: petTooAdd });
+        setPetName('');
+        setPetColor('');
+        setPetBreed('');
+        setOwner('');
     };
 
 
@@ -47,23 +53,26 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>Dashboard</h1>
+            <h1 className="dashHeader">Dashboard</h1>
 
             <h2>Add Pet</h2>
             <form onSubmit={handleSubmit}>
                 <input
+                    className="input"
                     type="text"
                     placeholder="Pet Name"
                     value={pet}
                     onChange={(event) => setPetName(event.target.value)}
                 />
                 <input
+                    className="input"
                     type="text"
                     placeholder="Pet Color"
                     value={color}
                     onChange={(event) => setPetColor(event.target.value)}
                 />
                 <input
+                    className="input"
                     type="text"
                     placeholder="Pet Breed"
                     value={breed}
@@ -84,13 +93,14 @@ const Dashboard = () => {
 
                 </select>
 
-                <button className="submitBtn" type="Submit">
+                <button className="submitBtn btn btn-success" type="Submit">
                     Submit
                 </button>
             </form>
-
+            <br />
             <h1>History</h1>
-            <table>
+
+            <table className="table table-striped table-hover table-dark">
                 <thead>
                     <tr>
 
@@ -115,10 +125,12 @@ const Dashboard = () => {
                             <td>
 
                                 <button
+                                    type="button" className="btn btn-danger"
                                     onClick={() => { deleteClicked(pet.id) }}
                                 >Delete</button>
 
                                 <button
+                                    type="button" className="btn btn-primary"
                                     onClick={() => { checkInClicked(pet.id) }}
                                 >Check-In</button>
 
