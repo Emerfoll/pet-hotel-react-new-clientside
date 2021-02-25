@@ -52,7 +52,7 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div>
+        <div className="dashHeader">
             <h1 className="dashHeader">Dashboard</h1>
 
             <h2>Add Pet</h2>
