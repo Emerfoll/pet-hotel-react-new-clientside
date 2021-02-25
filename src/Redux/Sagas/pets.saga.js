@@ -25,8 +25,9 @@ function* addPet(action) {
 }
 
 function* deletePet(action) {
+    console.log(action.payload)
     try {
-        yield axios.delete(`/pets/${action.payload.id}`);
+        yield axios.delete(`/pets/${action.payload}`);
         yield put({ type: 'FETCH_PETS' });
     } catch (err) {
 
