@@ -111,7 +111,7 @@ const Dashboard = () => {
                             <td>{pet.owner_id}</td>
                             <td>{pet.breed}</td>
                             <td>{pet.color}</td>
-                            <td>{pet.checked_in ? <p>yes</p> : <p>no</p>}</td>
+                            <td>{pet.checked_in ? <p>{pet.checked_in_date}</p> : <p>no</p>}</td>
                             <td>
 
                                 <button
