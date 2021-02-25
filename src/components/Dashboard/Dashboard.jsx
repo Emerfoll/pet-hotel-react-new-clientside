@@ -101,7 +101,7 @@ const Dashboard = () => {
                 </thead>
 
                 <tbody>
-                    {pets?.map((pet) => (
+                    {pets.map((pet) => (
                         <tr key={pet.id}>
                             <td>{pet.pet}</td>
                             <td>{pet.owner_id}</td>
