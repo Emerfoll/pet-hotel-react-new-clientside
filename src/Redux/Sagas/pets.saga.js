@@ -15,6 +15,8 @@ function* fetchPets() {
 
 function* addPet(action) {
     try {
+        console.log('saga to addPet');
+        
         yield axios.post('/pets', action.payload);
         yield put({ type: 'FETCH_PETS' });
     } catch (err) {
