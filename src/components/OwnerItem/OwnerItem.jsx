@@ -5,7 +5,8 @@ export default function OwnerItem({ owner, i }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch({ type: 'DELETE_USER', payload: owner });
+    console.log(owner.id)
+    dispatch({ type: 'DELETE_OWNER', payload: owner.id });
   };
   return (
     <tr key={i}>
